@@ -1,39 +1,359 @@
-body{
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-   color: rgb(252, 209, 146);
-    font-family: 'Poppins', sans-serif;
+/* *{
+    
     text-align: center;
-   min-height: 100vh;
-   overflow-x: hidden;
-}  
-.sec{
-    width: 1000px;
-    /* display: flex; */
-    background: linear-gradient(100deg,#0f2027, #1b3188, #0e1324, #1b3188);
-    box-shadow: 0 0 50px rgba(77,163,255,0.2);
-    border-radius: 10px;
-    border : 1px solid black;
-    justify-content: center;
-    padding: auto;
-    margin: auto auto 50px auto; 
-    flex-grow: 1;
-     transition: all 1.3s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px;
 }
-.sec:hover{
-     box-shadow: 0 0 35px rgba(4, 78, 31, 0.4);
-    /* box-shadow: 0 0 20px 5px #82ddfc; */
-    animation: glow 2s ease-in-out infinite alternate;
+body{
+    background-color: 125deg rgb(2, 39, 46);
 }
-.sec div{
-    flex-wrap:nowrap;
-    margin: auto auto 5px auto; 
-    width: 50%;
-    padding: 20px;
-    text-transform:initial;
-    color: seashell;
+img{
+    border-radius: 50%;
 }
-.sec h1{
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #82ddfc;
+nav div{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(28, 179, 206);
+    color: rgb(27, 99, 233);
+    padding: 10px;
+} */
+ RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050816;
+  color: #f3f4f6;
+  line-height: 1.6;
+}
+
+/* --- HEADER / NAVBAR --- */
+Header {
+  display: block;
+  flex-wrap: wrap;
+}
+
+Header {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  padding: 15px 20px;
+  background: #0b1220;
+  border-radius: 20px;
+  border: 1px solid #4b5563;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  position: sticky;
+  top: 10px;
+  z-index: 10;
+}
+
+Header nav {
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Profile info */
+Header nav > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+Header img {
+    display: inline;
+  border: 2px solid #60a5fa;
+  height: 220px;
+  width: 220px;
+  object-fit: cover;
+  transition: 1.4s;
+}
+
+/* image hover glow */
+Header img:hover {
+  transform: translateY(4px) scale(1.03); 
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.9); 
+}
+
+Header h1 {
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+Header p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* Nav links */
+Header a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.25s;
+}
+
+/* underline effect */
+Header a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: 0.25s;
+}
+
+/* Nav hover */
+Header a:hover {
+  color: #e5e7eb;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+  transform: translateY(-2px);
+}
+
+Header a:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- SECTIONS COMMON --- */
+Section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 24px;
+  background: #020617;
+  border-radius: 18px;
+  border: 1px solid #4b5563;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* simple fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* light border glow on hover */
+Section:hover {
+  border-color: #38bdf8;
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.4),
+    0 18px 40px rgba(0, 0, 0, 0.9);
+}
+
+/* section titles */
+Section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+
+/* title underline */
+Section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, transparent);
+}
+
+/* --- ABOUT --- */
+.about div {
+  color: #d1d5db;
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+/* first-letter style */
+.about div::first-letter {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* --- SKILL SECTION --- */
+.skill Div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.skill Div > div {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #4b5563;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  transition: 0.25s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* small circular bullet */
+.skill Div > div::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.9);
+}
+
+/* skill hover */
+.skill Div > div:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.4),
+    0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* --- ACHIEVEMENTS --- */
+Section:nth-of-type(3) Div {
+  display: grid;
+  gap: 18px;
+}
+
+Section:nth-of-type(3) Div > div {
+  padding: 16px 14px;
+  border-radius: 14px;
+  background: #020617;
+  border: 1px solid #4b5563;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
+  position: relative;
+}
+
+/* card hover */
+Section:nth-of-type(3) Div > div:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.4),
+    0 18px 38px rgba(0, 0, 0, 0.95);
+}
+
+/* achievement titles */
+Section:nth-of-type(3) h3 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+Section:nth-of-type(3) p {
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+/* last card (??????) – show message */
+Section:nth-of-type(3) Div > div:last-child {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #38bdf8;
+  font-size: 0.9rem;
+}
+
+/* --- CONTACT --- */
+.contact Div {
+  display: grid;
+  gap: 10px;
+}
+
+.contact Div > div {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+/* contact links */
+.contact a {
+  color: #38bdf8;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.contact a:hover {
+  color: #f9fafb;
+  border-bottom-color: #38bdf8;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  Header {
+    margin: 10px;
+    padding: 12px 14px;
+    position: static;
+  }
+
+  Header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  Header img {
+    height: 200px;
+    width: 200px;
+  }
+
+  Section {
+    margin: 24px 10px;
+    padding: 22px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  Header nav {
+    gap: 10px;
+  }
+
+  Header a {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .skill Div {
+    grid-template-columns: 1fr;
+  }
 }
