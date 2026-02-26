@@ -75,8 +75,8 @@ Header nav > div {
 Header img {
     display: inline;
   border: 2px solid #60a5fa;
-  height: 220px;
-  width: 220px;
+  height: 400px;
+  width: 400px;
   object-fit: cover;
   transition: 1.4s;
 }
